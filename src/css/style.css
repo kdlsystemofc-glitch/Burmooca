@@ -1,0 +1,1812 @@
+/* style.css — Estilos da base adaptada (estrutura da base; cores 100% via tokens.css / theme.css) */
+
+/* Textura Analógica Fixa em Toda a Landing Page */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  /* PNG = fallback; navegadores com image-set()+type() usam o WebP sem perdas (pixel-idêntico) */
+  background-image: url('./assets/paper-noise.png');
+  background-image: image-set(url('./assets/paper-noise.webp') type('image/webp') 1x, url('./assets/paper-noise.png') type('image/png') 1x);
+  background-repeat: repeat;
+  opacity: 0.085;
+  mix-blend-mode: multiply;
+  -webkit-print-color-adjust: exact;
+}
+
+/* Header de Navegação */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgba(var(--cream-rgb), 0.94);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(var(--ink-rgb), 0.08);
+  padding: 0.6rem 1.5rem;
+}
+
+.header-inner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 44px;
+}
+
+/* Logo real do cliente (único arquivo do cliente usado no site — ver assets.md) */
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: var(--logo-radius, 10px);
+  object-fit: cover;
+}
+
+.brand-text {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 0.9;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  letter-spacing: 0.04em;
+  color: var(--text-espresso);
+}
+
+.brand-sub {
+  font-family: var(--font-ui);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  color: var(--accent-gold-text);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.8vw, 1.6rem);
+}
+
+.nav-link {
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-espresso);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-gold-ui);
+}
+
+.btn-header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.55rem 1.25rem;
+  background-color: var(--accent-neon-green);
+  color: var(--cta-text);
+  font-family: var(--font-ui);
+  font-size: var(--fs-badge);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px rgba(var(--cta-rgb), 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-header-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(var(--cta-rgb), 0.7);
+}
+
+@media (max-width: 680px) {
+  .nav-link {
+    display: none;
+  }
+}
+
+/* Regra Full-Bleed por Seção */
+section, footer {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   01. SEÇÃO HERO
+   ========================================================================== */
+.section-hero {
+  background-color: var(--bg-cream);
+  min-height: clamp(540px, 88vh, 880px);
+  min-height: clamp(540px, 88svh, 880px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 3vw, 2.5rem) 1rem clamp(2.5rem, 5vw, 4rem);
+  position: relative;
+}
+
+/* Gota de Queijo Escorrendo no Canto Superior Esquerdo */
+.cheese-drip-top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(55px, 6.5vw, 85px);
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 6px rgba(var(--ink-rgb), 0.12));
+}
+
+.cheese-drip-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  fill: var(--accent-drip);
+}
+
+/* Marca Superior Central */
+.hero-top-brand {
+  position: absolute;
+  top: clamp(14px, 3vh, 32px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.88;
+  z-index: 5;
+  user-select: none;
+}
+
+.hero-brand-line1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  letter-spacing: 0.05em;
+  color: var(--text-espresso);
+}
+
+.hero-brand-line2 {
+  font-family: var(--font-ui);
+  font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  color: var(--text-espresso);
+  opacity: 0.85;
+}
+
+/* Letreiro de Fundo Gigante "MR. M" e "ÁRIO" */
+.hero-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: min(98vw, 1560px);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  padding: 0 clamp(0.5rem, 2vw, 2.5rem);
+}
+
+.hero-bg-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-txt-left, .hero-txt-right {
+  font-family: var(--font-display);
+  font-size: clamp(4.6rem, 16vw, 14.5rem);
+  line-height: 0.82;
+  letter-spacing: 0.03em;
+  color: var(--accent-gold-raw);
+  text-shadow: 0 4px 16px rgba(var(--display-rgb), 0.22);
+}
+
+/* Palco Central do Hambúrguer Hero */
+.hero-center-stage {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: min(88vw, 680px);
+}
+
+.hero-burger-picture {
+  display: block;
+  width: 100%;
+}
+
+.hero-burger-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 32px rgba(var(--ink-rgb), 0.24));
+}
+
+.hero-burger-shadow {
+  width: 78%;
+  height: 28px;
+  margin-top: -18px;
+  background: radial-gradient(ellipse at center, rgba(var(--ink-rgb), 0.42) 0%, rgba(var(--ink-rgb), 0.08) 55%, transparent 75%);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+/* Selo Verde '11 / VILA SAÚDE' Colado no Pão */
+.hero-center-stage .stamp-mint {
+  position: absolute;
+  top: 24%;
+  right: 14%;
+  width: clamp(46px, 5.2vw, 62px);
+  height: clamp(46px, 5.2vw, 62px);
+  background-color: var(--accent-mint-bg);
+  border: 2px dashed var(--accent-mint-text);
+  border-radius: 50%;
+  color: var(--accent-mint-text);
+  transform: rotate(18deg);
+  font-family: var(--font-ui);
+  font-weight: 800;
+  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  box-shadow: 0 4px 12px rgba(var(--ink-rgb), 0.16);
+}
+
+.stamp-mint-num {
+  font-size: clamp(0.68rem, 0.88vw, 0.85rem);
+}
+
+.stamp-mint-text {
+  font-size: clamp(0.44rem, 0.55vw, 0.52rem);
+  letter-spacing: 0.04em;
+}
+
+/* Camada de Decorações Flutuantes do Hero */
+.hero-decorations {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  max-width: min(98vw, 1400px);
+  margin: 0 auto;
+}
+
+/* Comandas / Recibos */
+.receipt {
+  position: absolute;
+  background: var(--receipt-bg);
+  padding: 0.45rem 0.65rem;
+  border: 1px dashed rgba(var(--ink-rgb), 0.25);
+  box-shadow: 0 4px 12px rgba(var(--ink-rgb), 0.08);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: clamp(0.55rem, 0.75vw, 0.7rem);
+  color: var(--text-espresso);
+  line-height: 1.25;
+}
+
+.receipt-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rc-num {
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.rc-bar {
+  letter-spacing: -2px;
+  font-size: 0.7em;
+  opacity: 0.5;
+}
+
+.receipt-tl {
+  top: clamp(10px, 3vh, 35px);
+  left: clamp(20px, 10vw, 130px);
+  transform: rotate(-14deg);
+}
+
+.receipt-bl {
+  bottom: clamp(12px, 3vh, 35px);
+  left: clamp(15px, 6vw, 85px);
+  transform: rotate(-8deg);
+}
+
+.receipt-br {
+  bottom: clamp(12px, 3vh, 35px);
+  right: clamp(15px, 6vw, 85px);
+  transform: rotate(18deg);
+}
+
+/* Dados 3D */
+.dice-wrapper {
+  position: absolute;
+  top: 18%;
+  left: clamp(14%, 22vw, 27%);
+  width: clamp(75px, 9vw, 120px);
+  transform: rotate(-12deg);
+}
+
+.hero-dice-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 20px rgba(var(--ink-rgb), 0.2));
+}
+
+/* Neon Doodle Vermelho */
+.neon-doodle-wrapper {
+  position: absolute;
+  bottom: 24%;
+  left: clamp(16%, 23vw, 28%);
+  width: clamp(65px, 7vw, 95px);
+  transform: rotate(-6deg);
+}
+
+.hero-neon-img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(var(--neon-rgb), 0.85));
+}
+
+/* 100% Carne Fresca */
+.badge-fresh-meat {
+  position: absolute;
+  bottom: clamp(16%, 22%, 28%);
+  left: clamp(5%, 10vw, 15%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 0.95;
+}
+
+.fresh-perc {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+  letter-spacing: 0.04em;
+  color: var(--text-espresso);
+}
+
+.fresh-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 2.2rem);
+  letter-spacing: 0.04em;
+  color: var(--text-espresso);
+}
+
+/* Selos Circulares */
+.stamp {
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(var(--ink-rgb), 0.12);
+}
+
+.stamp-blue {
+  top: clamp(12px, 3.5vh, 35px);
+  right: clamp(30%, 35vw, 40%);
+  width: clamp(48px, 5vw, 65px);
+  height: clamp(48px, 5vw, 65px);
+  background-color: var(--accent-blue-stamp);
+  border: 1.5px dashed var(--accent-blue-text);
+}
+
+.stamp-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.stamp-text {
+  font-family: var(--font-ui);
+  font-size: 8px;
+  font-weight: 800;
+  fill: var(--accent-blue-text);
+}
+
+.stamp-coral {
+  top: clamp(24px, 5vh, 48px);
+  right: clamp(8%, 14vw, 18%);
+  width: clamp(52px, 5.8vw, 70px);
+  height: clamp(52px, 5.8vw, 70px);
+  background-color: var(--accent-coral-bg);
+  border: 2px dashed rgba(var(--ink-rgb), 0.35);
+  color: var(--accent-coral-text);
+  transform: rotate(-10deg);
+  padding: 4px;
+}
+
+.stamp-badge-title {
+  font-family: var(--font-display);
+  font-size: clamp(0.65rem, 0.9vw, 0.85rem);
+  line-height: 1;
+}
+
+.stamp-badge-sub {
+  font-family: var(--font-ui);
+  font-size: clamp(0.42rem, 0.55vw, 0.52rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+/* Batatas Fritas Voando */
+.fries-fly-wrapper {
+  position: absolute;
+  top: 18%;
+  right: clamp(14%, 21vw, 26%);
+  width: clamp(75px, 9.5vw, 125px);
+  filter: drop-shadow(0 8px 16px rgba(var(--ink-rgb), 0.18));
+}
+
+.hero-flying-fries-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Pílulas Inferiores Direitas */
+.badge-pill {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  font-family: var(--font-ui);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 4px 12px rgba(var(--ink-rgb), 0.1);
+  padding: clamp(0.35rem, 0.7vw, 0.55rem) clamp(0.8rem, 1.4vw, 1.4rem);
+}
+
+.pill-saude {
+  bottom: clamp(30%, 35%, 40%);
+  right: clamp(5%, 11vw, 16%);
+  background-color: var(--accent-mint-bg);
+  color: var(--accent-mint-text);
+  font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+  border: 2px solid rgba(var(--ink-rgb), 0.15);
+}
+
+.pill-hours {
+  bottom: clamp(20%, 25%, 30%);
+  right: clamp(5%, 11vw, 16%);
+  background-color: var(--pill-hours-bg);
+  color: var(--pill-hours-text);
+  font-size: clamp(0.72rem, 1.05vw, 0.92rem);
+  border: 1.5px solid rgba(var(--conv-rgb), 0.4);
+}
+
+/* Mobile Adjustments (Hero) */
+@media (max-width: 640px) {
+  .section-hero {
+    min-height: 540px;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-bg-inner {
+    justify-content: space-around;
+  }
+
+  .hero-txt-left, .hero-txt-right {
+    font-size: clamp(3rem, 15vw, 4.8rem);
+  }
+
+  .dice-wrapper {
+    top: 14%;
+    left: 4%;
+    width: 58px;
+  }
+
+  .neon-doodle-wrapper {
+    bottom: 18%;
+    left: 5%;
+    width: 48px;
+  }
+
+  .receipt-tl, .receipt-br, .receipt-bl {
+    display: none;
+  }
+
+  /* Correção sobre a base: em <=640px o selo circular encostava no letreiro do <h1> */
+  .stamp-blue {
+    display: none;
+  }
+
+  .badge-fresh-meat {
+    bottom: 6%;
+    left: 5%;
+  }
+
+  .pill-saude {
+    bottom: 19%;
+    right: 4%;
+    font-size: 0.75rem;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .pill-hours {
+    bottom: 9%;
+    right: 4%;
+    font-size: 0.72rem;
+    padding: 0.35rem 0.8rem;
+  }
+}
+
+/* Ajustes Específicos para Telas Ultra-Estreitas (320px a 360px) */
+@media (max-width: 360px) {
+  .hero-txt-left, .hero-txt-right {
+    font-size: 2.7rem;
+  }
+  .pill-saude, .pill-hours {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.65rem;
+  }
+  .fresh-perc, .fresh-text {
+    font-size: 1.25rem;
+  }
+}
+
+/* Ajustes para Celular Deitado (Landscape com altura <= 500px) */
+@media (orientation: landscape) and (max-height: 500px) {
+  .site-header {
+    padding: 0.35rem 1rem;
+  }
+  .section-hero {
+    min-height: 480px;
+    padding: 1.5rem 1rem;
+  }
+  .hero-top-brand {
+    top: 8px;
+  }
+  .hero-center-stage {
+    max-width: 340px;
+  }
+  .hero-burger-shadow {
+    height: 18px;
+    margin-top: -10px;
+  }
+  .hero-txt-left, .hero-txt-right {
+    font-size: clamp(3.5rem, 10vw, 6rem);
+  }
+  .dice-wrapper {
+    top: 12%;
+    left: 8%;
+    width: 60px;
+  }
+  .neon-doodle-wrapper {
+    bottom: 15%;
+    left: 10%;
+    width: 50px;
+  }
+}
+
+/* ==========================================================================
+   02. SEÇÃO MENU HIGHLIGHTS (ZERO CARDS — INTEGRAÇÃO ORGÂNICA NO SOLO)
+   ========================================================================== */
+.section-menu {
+  background-color: var(--bg-cream);
+  padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1rem, 3.5vw, 2.5rem) clamp(4rem, 7vw, 6.5rem);
+  position: relative;
+  z-index: 2;
+  scroll-margin-top: 4.5rem;
+  overflow: hidden;
+}
+
+/* Camada Ondulada / Corte Diagonal de Fundo Bege Escuro */
+.menu-sand-shape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sand-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: var(--bg-sand-layer);
+}
+
+.menu-header {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  margin-bottom: clamp(1.5rem, 3.5vw, 3rem);
+}
+
+.menu-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  letter-spacing: 0.04em;
+  color: var(--text-espresso);
+  line-height: 0.95;
+}
+
+/* Vitrine Fluida dos 3 Produtos Livres no Solo */
+.menu-showcase {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+  max-width: min(96vw, 1380px);
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+.menu-display-item {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.menu-food-visual {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-food-img {
+  width: 100%;
+  max-width: 440px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 26px rgba(var(--ink-rgb), 0.22));
+}
+
+.menu-ground-shadow {
+  width: 82%;
+  height: 24px;
+  margin-top: -14px;
+  background: radial-gradient(ellipse at center, rgba(var(--ink-rgb), 0.42) 0%, rgba(var(--ink-rgb), 0.08) 55%, transparent 75%);
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+/* Decorações do Item 1 (Smash Duplo) */
+.menu-item-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.menu-dice-float {
+  position: absolute;
+  top: -8%;
+  left: -4%;
+  width: clamp(55px, 6.2vw, 85px);
+  transform: rotate(-14deg);
+}
+
+.menu-dice-float > * {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 8px 16px rgba(var(--ink-rgb), 0.18));
+}
+
+.menu-neon-float {
+  position: absolute;
+  bottom: 18%;
+  left: -8%;
+  width: clamp(50px, 5.5vw, 75px);
+}
+
+.menu-neon-float > * {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(var(--neon-rgb), 0.8));
+}
+
+/* Tag Pílula Dourada "MR BURGUINHO" no Pão */
+.pill-burguinho-tag {
+  position: absolute;
+  top: 12%;
+  right: 8%;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.55rem);
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-sm);
+  z-index: 5;
+  box-shadow: 0 4px 12px rgba(var(--ink-rgb), 0.25);
+  transform: rotate(-2deg);
+}
+
+/* Selo "PREÇO JUSTO" Estampado sobre as Batatas */
+.stamp-preco-justo {
+  position: absolute;
+  top: -8%;
+  right: 4%;
+  width: clamp(96px, 10.5vw, 136px);
+  height: clamp(96px, 10.5vw, 136px);
+  background: var(--accent-mint-bg);
+  border: 2.5px dashed var(--accent-mint-text);
+  border-radius: 50%;
+  color: var(--accent-mint-text);
+  transform: rotate(10deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(var(--ink-rgb), 0.16);
+  z-index: 5;
+}
+
+.stamp-pj-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.05;
+  padding: 4px;
+}
+
+.pj-curved {
+  font-family: var(--font-ui);
+  font-size: clamp(0.5rem, 0.7vw, 0.68rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.pj-value {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.45vw, 1.55rem);
+  letter-spacing: 0.02em;
+}
+
+.pj-bottom {
+  font-family: var(--font-ui);
+  font-size: clamp(0.44rem, 0.58vw, 0.56rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+/* Responsividade Mobile (Menu) */
+@media (max-width: 768px) {
+  .section-menu {
+    padding-top: 3.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .menu-showcase {
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+  }
+
+  .menu-display-item {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .stamp-preco-justo {
+    top: -6%;
+    right: 4%;
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Landscape Celular para Menu */
+@media (orientation: landscape) and (max-height: 500px) {
+  .section-menu {
+    padding: 2.5rem 1rem 3.5rem;
+  }
+  .menu-showcase {
+    flex-direction: row;
+    gap: 1.2rem;
+  }
+  .menu-food-img {
+    max-width: 240px;
+  }
+}
+
+/* ==========================================================================
+   03. SEÇÃO A TÉCNICA DA CHAPA (THE GRIDDLE CRAFT)
+   ========================================================================== */
+.section-griddle {
+  position: relative;
+  width: 100%;
+  background-color: var(--bg-griddle-black);
+  overflow: hidden;
+  z-index: 3;
+}
+
+/* Bordas de Papel Rasgado Contínuo em SVG (Zero Seams) */
+.torn-paper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: clamp(30px, 4.2vw, 46px);
+  z-index: 10;
+  pointer-events: none;
+  line-height: 0;
+}
+
+.torn-paper-top {
+  top: -1px;
+}
+
+.torn-paper-bottom {
+  bottom: -1px;
+}
+
+.torn-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Cenário de Fundo da Chapa */
+.griddle-backdrop {
+  position: relative;
+  width: 100%;
+  min-height: clamp(320px, 38vw, 500px);
+  display: flex;
+  align-items: center;
+}
+
+.griddle-picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.griddle-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.griddle-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--dark-rgb), 0.88) 0%,
+    rgba(var(--dark-rgb), 0.35) 45%,
+    rgba(var(--dark-rgb), 0.15) 100%
+  );
+  z-index: 2;
+}
+
+/* Conteúdo Sobreposto */
+.griddle-content-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: min(94vw, 1380px);
+  margin: 0 auto;
+  padding: clamp(3.5rem, 6vw, 5.5rem) clamp(1rem, 3.5vw, 2.5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.griddle-headline {
+  max-width: 560px;
+}
+
+.griddle-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.8vw, 4.9rem);
+  letter-spacing: 0.05em;
+  color: var(--text-white);
+  line-height: 0.95;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+}
+
+/* Selo Coral Crosta Maillard */
+.griddle-badge-cluster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: clamp(1rem, 4vw, 3.5rem);
+}
+
+.stamp-maillard {
+  width: clamp(88px, 9.2vw, 120px);
+  height: clamp(88px, 9.2vw, 120px);
+  border-radius: 50%;
+  background-color: var(--accent-coral-bg);
+  border: 2.5px solid rgba(var(--ink-rgb), 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transform: rotate(8deg);
+  color: var(--text-espresso);
+  padding: 6px;
+  line-height: 1;
+}
+
+.maillard-top {
+  font-family: var(--font-ui);
+  font-size: clamp(0.55rem, 0.75vw, 0.72rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.maillard-burger-icon {
+  width: clamp(28px, 3.2vw, 38px);
+  height: auto;
+  margin: 3px 0;
+}
+
+.maillard-bottom {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.35vw, 1.35rem);
+  letter-spacing: 0.04em;
+}
+
+.chalk-arrow {
+  width: clamp(48px, 5.5vw, 70px);
+  margin-top: 6px;
+  transform: rotate(-10deg);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+}
+
+.arrow-svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Responsividade Mobile (Griddle) */
+@media (max-width: 768px) {
+  .griddle-content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .griddle-badge-cluster {
+    align-self: flex-end;
+    margin-right: 0;
+    margin-top: -1rem;
+  }
+}
+
+/* Landscape Celular para Griddle */
+@media (orientation: landscape) and (max-height: 500px) {
+  .griddle-backdrop {
+    min-height: 300px;
+  }
+  .griddle-content-wrapper {
+    padding: 2.5rem 1.5rem;
+  }
+  .griddle-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   04. SEÇÃO SALÃO, GAMES & AVALIAÇÕES (THE BOARD GAME LOUNGE)
+   ========================================================================== */
+.section-lounge {
+  background-color: var(--bg-cream);
+  padding: clamp(3.5rem, 6vw, 5.5rem) clamp(1rem, 3.5vw, 2.5rem) clamp(3.5rem, 7vw, 6rem);
+  position: relative;
+  z-index: 2;
+  scroll-margin-top: 5rem;
+}
+
+.lounge-header {
+  text-align: center;
+  max-width: var(--max-content-width);
+  margin: 0 auto clamp(2rem, 4vw, 3.5rem);
+}
+
+.lounge-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  letter-spacing: 0.04em;
+  color: var(--text-espresso);
+  line-height: 0.95;
+  margin-bottom: 0.4rem;
+}
+
+.lounge-subtitle {
+  font-family: var(--font-ui);
+  font-size: var(--fs-badge);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.lounge-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: min(96vw, 1360px);
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Fotos da Mesa de Jogos Inclinadas */
+.lounge-photo {
+  flex: 1;
+  max-width: 420px;
+  z-index: 2;
+}
+
+.photo-frame {
+  border: 6px solid var(--frame-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+  background: var(--frame-bg);
+  transition: transform 0.25s ease;
+}
+
+.lounge-photo-left {
+  transform: rotate(5.5deg);
+  margin-right: -40px;
+}
+
+.lounge-photo-right {
+  transform: rotate(-5.5deg);
+  margin-left: -40px;
+}
+
+.lounge-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Troféu Central Dominante & Selo Google Reviews */
+.lounge-centerpiece {
+  flex: 1.1;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 8;
+}
+
+.trophy-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trophy-img {
+  width: clamp(240px, 28vw, 390px);
+  height: auto;
+  filter: drop-shadow(0 16px 32px rgba(var(--ink-rgb), 0.3));
+}
+
+.badge-google-reviews {
+  position: absolute;
+  right: clamp(-6px, 1.5vw, 18px);
+  top: 44%;
+  background: var(--bg-tape-paper);
+  border: 2px dashed rgba(var(--ink-rgb), 0.4);
+  border-radius: 50%;
+  width: clamp(78px, 8.5vw, 102px);
+  height: clamp(78px, 8.5vw, 102px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(var(--ink-rgb), 0.16);
+  padding: 4px;
+  transform: rotate(6deg);
+}
+
+.gr-number {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  line-height: 0.9;
+  color: var(--text-espresso);
+}
+
+.gr-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.42rem, 0.55vw, 0.52rem);
+  font-weight: 800;
+  color: var(--text-muted);
+  line-height: 1.15;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+/* Fita Crepe Adesiva com Depoimento */
+.tape-testimonial-wrapper {
+  position: relative;
+  margin-top: -20px;
+  z-index: 9;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
+}
+
+.tape-strip {
+  background-color: var(--bg-tape-paper);
+  transform: rotate(-2deg);
+  padding: 0.75rem clamp(1rem, 2.5vw, 2.2rem);
+  box-shadow: 0 8px 20px rgba(var(--ink-rgb), 0.18);
+  clip-path: polygon(1% 0%, 99% 1%, 100% 98%, 0% 100%);
+  border-left: 4px dashed rgba(var(--ink-rgb), 0.2);
+  border-right: 4px dashed rgba(var(--ink-rgb), 0.2);
+}
+
+.tape-quote {
+  font-family: var(--font-hand);
+  font-size: clamp(1.15rem, 1.6vw, 1.55rem);
+  font-weight: 700;
+  color: var(--text-espresso);
+  text-align: center;
+  line-height: 1.25;
+}
+
+/* Responsividade Mobile (Lounge) */
+@media (max-width: 768px) {
+  .section-lounge {
+    padding-top: 4.5rem;
+  }
+
+  .lounge-stage {
+    flex-direction: column;
+    gap: 2.8rem;
+  }
+
+  .lounge-photo-left {
+    margin-right: 0;
+    max-width: 340px;
+  }
+
+  .lounge-photo-right {
+    margin-left: 0;
+    max-width: 340px;
+  }
+
+  .badge-google-reviews {
+    right: 8%;
+  }
+}
+
+/* Landscape Celular para Lounge */
+@media (orientation: landscape) and (max-height: 500px) {
+  .section-lounge {
+    padding: 2.5rem 1rem 3.5rem;
+  }
+  .lounge-photo {
+    max-width: 250px;
+  }
+  .trophy-img {
+    width: 210px;
+  }
+}
+
+/* ==========================================================================
+   05. SEÇÃO RODAPÉ E CONVERSÃO (FOOTER & CONVERSION)
+   ========================================================================== */
+.section-footer {
+  width: 100%;
+  background-color: var(--bg-diner-red);
+  position: relative;
+  overflow: hidden;
+  z-index: 3;
+}
+
+/* Divisória Rolo de Filme 35mm / Película Vintage */
+.film-strip-divider {
+  width: 100%;
+  height: 22px;
+  background-color: var(--strip-bg);
+  border-top: 2px solid var(--strip-edge);
+  border-bottom: 2px solid var(--strip-edge);
+  display: flex;
+  align-items: center;
+}
+
+.film-sprockets {
+  width: 100%;
+  height: 8px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--strip-hole) 0,
+    var(--strip-hole) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  background-size: 20px 8px;
+  background-repeat: repeat-x;
+}
+
+/* Palco Interno do Rodapé */
+.footer-inner-stage {
+  position: relative;
+  width: 100%;
+  min-height: clamp(420px, 48vw, 560px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(2.5rem, 5vw, 4rem) 1rem clamp(3rem, 5vw, 4.5rem);
+}
+
+/* Cenário Retro do Diner com Mesas Visíveis nas Extremidades */
+.footer-bg-diner {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sem foto: a base usava um diner gerado por IA. Aqui o fundo é padrão CSS do tema (theme.css). */
+.footer-bg-diner {
+  background: var(--footer-pattern, none);
+}
+
+/* Conteúdo de Conversão */
+.footer-content-container {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: min(94vw, 860px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(1rem, 2vw, 1.8rem);
+}
+
+.footer-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  letter-spacing: 0.05em;
+  color: var(--text-white);
+  line-height: 0.95;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.85);
+}
+
+.footer-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.75rem, 1.4vw, 1.2rem);
+  width: 100%;
+}
+
+/* Botões Neon com Brilho Pulsante e Alvo de Toque Mínimo Acessível */
+.neon-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  min-width: 48px;
+  gap: 6px;
+  background: var(--cta-btn-bg);
+  border: 2.5px solid var(--accent-neon-green);
+  border-radius: var(--radius-full);
+  padding: clamp(0.65rem, 1.1vw, 0.9rem) clamp(1rem, 2.5vw, 2.4rem);
+  color: var(--accent-neon-glow);
+  font-family: var(--font-ui);
+  font-size: clamp(0.82rem, 1.2vw, 1.15rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 0 14px rgba(var(--cta-rgb), 0.8), 0 0 32px rgba(var(--cta-rgb), 0.45);
+  text-shadow: 0 0 8px rgba(var(--cta-rgb), 0.9);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.neon-pill-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: var(--cta-btn-bg-hover);
+  box-shadow: 0 0 20px rgba(var(--cta-rgb), 0.95), 0 0 44px rgba(var(--cta-rgb), 0.6);
+}
+
+.bracket {
+  opacity: 0.65;
+  font-weight: 400;
+}
+
+/* Pílula Horários */
+.footer-hours-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--text-white);
+  font-family: var(--font-ui);
+  font-size: clamp(0.8rem, 1.1vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Endereço Oficial */
+.footer-address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.5rem;
+}
+
+.address-text {
+  color: var(--text-white);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+/* Mobile Adjustments (Footer) */
+@media (max-width: 768px) {
+  .neon-pill-btn {
+    font-size: 0.76rem;
+    padding: 0.65rem 0.85rem;
+    width: 98%;
+    max-width: 360px;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-hours-pill {
+    font-size: 0.75rem;
+  }
+
+  .address-text {
+    font-size: 0.85rem;
+    padding: 0 1rem;
+  }
+}
+
+/* Ajustes Específicos para 320px */
+@media (max-width: 340px) {
+  .neon-pill-btn {
+    font-size: 0.68rem;
+    padding: 0.6rem 0.5rem;
+    letter-spacing: 0;
+  }
+}
+
+/* Landscape Celular para Footer */
+@media (orientation: landscape) and (max-height: 500px) {
+  .footer-inner-stage {
+    min-height: 380px;
+    padding: 2rem 1rem;
+  }
+}
+
+/* ==========================================================================
+   Motion System & Acessibilidade
+   ========================================================================== */
+
+.motion-pause-btn {
+  position: fixed;
+  bottom: clamp(16px, 3vh, 28px);
+  left: clamp(16px, 3vw, 28px);
+  z-index: 998;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.4rem 0.85rem;
+  background-color: rgba(var(--cream-rgb), 0.94);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 2px solid var(--text-espresso);
+  border-radius: var(--radius-full);
+  color: var(--text-espresso);
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow: 0 4px 14px rgba(var(--ink-rgb), 0.18);
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.motion-pause-btn:hover,
+.motion-pause-btn:focus-visible {
+  transform: scale(1.05);
+  background-color: var(--bg-cream);
+  outline: 2px solid var(--accent-gold-text);
+}
+
+.motion-pause-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.motion-pause-btn .icon-play {
+  display: none;
+}
+
+.motion-pause-btn.is-paused .icon-pause {
+  display: none;
+}
+
+.motion-pause-btn.is-paused .icon-play {
+  display: inline-block;
+}
+
+.motion-pause-btn.is-paused {
+  background-color: var(--paused-bg);
+  border-color: var(--bg-diner-red);
+  color: var(--bg-diner-red);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-pause-btn {
+    display: none;
+  }
+}
+
+html[data-motion-mode="reduced"] * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* ==========================================================================
+   Otimização — proporção fixa das imagens com srcset
+   Os degraus menores (480w, 640w, 1200w...) têm altura arredondada e proporção
+   ligeiramente diferente do arquivo -800 original. Sem isto, a caixa da imagem
+   mudaria frações de pixel conforme o degrau escolhido e deslocaria tudo abaixo.
+   Valores = proporção natural dos arquivos que eram usados antes (geometria idêntica).
+   Navegador sem aspect-ratio usa a proporção natural (diferença subpixel).
+   ========================================================================== */
+.hero-burger-img,
+.menu-food-img {
+  aspect-ratio: 800 / 533;
+}
+
+/* Fundos de largura total: antes, 800x266 abaixo de 768px e 1600x533 a partir dele */
+.griddle-bg-img {
+  aspect-ratio: 800 / 266;
+}
+
+@media (min-width: 768px) {
+  .griddle-bg-img {
+    aspect-ratio: 1600 / 533;
+  }
+}
+
+/* ==========================================================================
+   SEO — semântica sem mudança visual
+   ========================================================================== */
+/* O letreiro do hero virou o <h1> da página: neutraliza tamanho/peso padrão do h1
+   para o resultado ficar idêntico ao <div> anterior (margem já zerada no reset). */
+h1.hero-top-brand {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Texto lido por leitores de tela e buscadores, invisível na tela */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   ADAPTAÇÃO DE BASE — componentes que substituem imagens específicas do cliente da base
+   (dados, troféu "5.0", fotos de salão e diner eram plates de IA amarrados àquele cliente).
+   Tudo aqui é CSS/SVG puro; cores só por tokens.
+   ========================================================================== */
+
+/* Ícones decorativos do tema (SVG inline) nos slots dos dados/neon/batatas */
+.hero-dice-img,
+.hero-neon-img,
+.hero-flying-fries-img,
+.menu-dice-float > svg,
+.menu-neon-float > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.hero-flying-fries-img {
+  filter: drop-shadow(0 8px 16px rgba(var(--ink-rgb), 0.18));
+}
+
+.neon-line {
+  fill: none;
+  stroke: var(--accent-neon-line);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Selo de nota (substitui o troféu "5.0": a nota exibida é a real do Google deste cliente) */
+.rating-medal {
+  position: relative;
+  width: clamp(230px, 26vw, 360px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: var(--medal-bg);
+  color: var(--medal-text);
+  border: clamp(6px, 0.7vw, 10px) solid var(--medal-ring);
+  box-shadow: 0 0 0 clamp(5px, 0.6vw, 8px) var(--bg-cream), 0 0 0 clamp(8px, 0.9vw, 12px) var(--medal-ring),
+    0 22px 44px rgba(var(--ink-rgb), 0.28);
+}
+
+.rating-medal::before {
+  content: '';
+  position: absolute;
+  inset: 9%;
+  border-radius: 50%;
+  border: 2px dashed var(--medal-ring);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.medal-kicker {
+  font-family: var(--font-ui);
+  font-size: clamp(0.62rem, 0.85vw, 0.82rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.medal-score {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 9.5vw, 8.6rem);
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+  color: var(--medal-score);
+}
+
+.medal-stars {
+  position: relative;
+  display: inline-block;
+  font-size: clamp(1.15rem, 1.9vw, 1.75rem);
+  letter-spacing: 0.12em;
+  line-height: 1;
+  color: rgba(var(--ink-rgb), 0.25);
+  margin: 0.25em 0 0.35em;
+}
+
+.medal-stars::before {
+  content: '★★★★★';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--stars-fill, 100%);
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--medal-star);
+}
+
+.rating-medal.is-dark .medal-stars {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+.medal-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 0.8vw, 0.78rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+/* Cartões de avaliação (substituem as fotos de "mesa de jogos" geradas por IA) */
+.review-card {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: clamp(1.1rem, 2.2vw, 2rem);
+  background: var(--receipt-bg);
+  color: var(--text-espresso);
+  text-align: left;
+}
+
+.review-stars {
+  color: var(--review-star, var(--medal-star));
+  font-size: clamp(1rem, 1.3vw, 1.25rem);
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.review-quote {
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.15vw, 1.08rem);
+  line-height: 1.5;
+}
+
+.review-author {
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .review-card {
+    aspect-ratio: auto;
+  }
+}
+
+/* Pílulas de atributos do Google (dados reais do CLIENTE.md) */
+.lounge-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.lounge-tag {
+  font-family: var(--font-ui);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid rgba(var(--ink-rgb), 0.35);
+  color: var(--text-espresso);
+}
+
+/* Linha de cardápio sob a vitrine */
+.menu-cta-line {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem 1.2rem;
+  margin: clamp(2rem, 4vw, 3rem) auto 0;
+  max-width: var(--max-reading-width);
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text-espresso);
+}
+
+.menu-cta-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.55rem 1.3rem;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--text-espresso);
+  font-family: var(--font-ui);
+  font-size: var(--fs-badge);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-espresso);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-cta-link:hover,
+.menu-cta-link:focus-visible {
+  background: var(--text-espresso);
+  color: var(--bg-cream);
+}
+
+/* Logo e nota no rodapé */
+.footer-logo {
+  width: clamp(72px, 8vw, 104px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: var(--logo-radius, 10px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+}
+
+.footer-note {
+  color: var(--text-white);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  max-width: 46ch;
+}
+
+.footer-note a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.25rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Texto de apoio na faixa escura (dados reais do cliente) */
+.griddle-lead {
+  margin-top: var(--space-sm);
+  max-width: 44ch;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--text-cream-light);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+.chalk-arrow {
+  color: var(--text-white);
+}
+
+.lounge-tags {
+  list-style: none;
+  padding: 0;
+}

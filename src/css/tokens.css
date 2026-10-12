@@ -1,0 +1,103 @@
+/* tokens.css — Design Tokens Burmooca
+   Paleta derivada do LOGO real (imagens/imgi_2): fundo preto, pão mostarda, zigue-zague de ketchup
+   vermelho, onda de alface verde, letras brancas. Mesma função de cada cor da base (ver DIFERENCAS.md):
+   fundo claro / camada de areia / faixa escura / cor de conversão / tinta / letreiro / selos / CTA. */
+
+:root {
+  /* Cores de Fundo (Full-bleed por seção) */
+  --bg-cream: #f7f0de;            /* creme de pão / manteiga */
+  --bg-sand-layer: #eedfb4;       /* mostarda bem clara */
+  --bg-griddle-black: #121212;    /* preto do fundo do logo */
+  --bg-diner-red: #1d5634;        /* conversão: verde-alface escuro (no lugar do vermelho da base) */
+  --bg-tape-paper: #f3e8c4;
+
+  /* Triplos RGB para transparências (rgba(var(--x), a)) */
+  --cream-rgb: 247, 240, 222;
+  --ink-rgb: 26, 23, 20;
+  --dark-rgb: 18, 18, 18;
+  --conv-rgb: 29, 86, 52;
+  --display-rgb: 232, 168, 23;
+  --cta-rgb: 245, 179, 28;
+  --neon-rgb: 232, 64, 40;
+
+  /* Cores de Texto */
+  --text-espresso: #1a1714;       /* tinta = preto do logo */
+  --text-white: #ffffff;
+  --text-cream-light: #fff6e2;
+  --text-muted: #5b5244;
+
+  /* Acentos, Selos & Efeitos */
+  --accent-gold-raw: #1a1714;     /* letreiro gigante do hero: preto do logo (decorativo, aria-hidden) */
+  --accent-gold-ui: #8a5c00;
+  --accent-gold-text: #855900;    /* mostarda escurecida para texto pequeno em fundo claro */
+  --accent-mint-bg: #93d07c;      /* alface */
+  --accent-mint-text: #143a1d;
+  --accent-coral-bg: #ef5a3c;     /* ketchup/tomate */
+  --accent-coral-text: #1a1714;
+  --accent-blue-stamp: #f5c443;   /* selo circular: mostarda */
+  --accent-blue-text: #1a1714;
+  --accent-neon-green: #f5b31c;   /* CTA: mostarda do pão (no lugar do verde WhatsApp da base) */
+  --accent-neon-glow: #ffd36a;
+  --accent-trophy-gold: #f5b31c;
+  --accent-drip: #f5b31c;
+  --accent-neon-line: #ff5a3c;
+  --accent-lettuce: #3f9a3c;     /* alface do logo (mesmo verde do edge-*.svg) */
+
+  /* Componentes */
+  --cta-text: #1a1714;
+  --cta-btn-bg: rgba(18, 18, 18, 0.92);
+  --cta-btn-bg-hover: rgba(34, 30, 24, 0.96);
+  --tag-bg: #c22f1c;
+  --tag-text: #ffffff;
+  --receipt-bg: #fffaf0;
+  --frame-border: #1a1714;
+  --frame-bg: #1a1714;
+  --strip-bg: #f5b31c;
+  --strip-edge: #1a1714;
+  --strip-hole: #c22f1c;
+  --paused-bg: #fdf0cf;
+  --pill-hours-bg: #1a1714;
+  --pill-hours-text: #f5c443;
+  --medal-bg: #1a1714;
+  --medal-text: #fff6e2;
+  --medal-ring: #f5b31c;
+  --medal-score: #f5c443;
+  --medal-star: #f5b31c;
+  --review-star: #c22f1c;       /* estrelas nos cartões claros (mostarda não passa 3:1 no creme) */
+  --logo-radius: 12px;
+
+  /* Tipografia com Fallbacks Robustos */
+  --font-display: 'Bebas Neue', 'Impact', 'Arial Black', sans-serif;
+  --font-ui: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-hand: 'Caveat', 'Brush Script MT', 'Comic Sans MS', cursive;
+
+  /* Escala Fluida Adaptada a Extremos (320px a 2560px) */
+  --fs-hero-title: clamp(4rem, 15vw, 13.5rem);
+  --fs-h2: clamp(2.2rem, 5.5vw, 4.8rem);
+  --fs-h3: clamp(1.3rem, 2.6vw, 2.4rem);
+  --fs-body: clamp(0.9rem, 1.2vw, 1.15rem);
+  --fs-small: clamp(0.72rem, 0.9vw, 0.9rem);
+  --fs-badge: clamp(0.68rem, 0.95vw, 0.95rem);
+
+  /* Espaçamentos Fluidos */
+  --space-xs: clamp(0.35rem, 0.8vw, 0.6rem);
+  --space-sm: clamp(0.6rem, 1.2vw, 1rem);
+  --space-md: clamp(1rem, 2vw, 1.8rem);
+  --space-lg: clamp(1.8rem, 3.5vw, 3.2rem);
+  --space-xl: clamp(2.5rem, 5vw, 5rem);
+  --space-section: clamp(3rem, 7vw, 6.5rem);
+
+  /* Largura Máxima */
+  --max-reading-width: 68ch;
+  --max-content-width: min(96vw, 1440px);
+
+  /* Bordas & Sombras */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --shadow-soft: 0 8px 24px rgba(var(--ink-rgb), 0.08);
+  --shadow-float: 0 16px 36px rgba(var(--ink-rgb), 0.18);
+  --shadow-neon: 0 0 14px rgba(var(--cta-rgb), 0.75), 0 0 32px rgba(var(--cta-rgb), 0.45);
+}

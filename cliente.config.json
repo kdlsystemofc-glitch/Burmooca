@@ -1,0 +1,41 @@
+{
+  "_leia-me": "Dados do cliente ainda pendentes. Preencha o valor, troque 'confirmado' para true e rode: npm run build. Campos iniciados com '_' são só documentação. Efeito de cada item: PENDENCIAS-CLIENTE.md.",
+
+  "dominio": null,
+  "_dominio": "Ex.: \"https://www.burmooca.com.br\" (só https, sem barra no fim). Publica canonical, og:url, og:image, twitter:image, @id/url/image/logo no JSON-LD, Sitemap no robots.txt e a URL no sitemap.xml.",
+
+  "ogImageAlt": "Hambúrguer ilustrativo sob o letreiro Burmooca",
+  "notaGoogle": "4,8 (107)",
+
+  "horario": {
+    "confirmado": false,
+    "dias": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "abre": "07:00",
+    "fecha": "17:00",
+    "_fonte": "Bio do Instagram (Segunda a Sábado 7 às 17h, café e almoço) + Google ('Fecha 17:00'). O Google cita 'Outros horários' sem detalhar; à noite só eventos privados.",
+    "_efeito": "Publica openingHoursSpecification no JSON-LD. Os textos visíveis 'SEG A SÁB · 7H–17H', '7H ÀS 17H' e 'SEG A SÁB // 7H – 17H' estão em src/index.html: se o horário confirmado for outro, edite-os lá também."
+  },
+
+  "faixaDePreco": {
+    "confirmado": false,
+    "valor": "R$ 40–60",
+    "_fonte": "Google Maps, 'informado por 26 pessoas' (estimativa de usuários).",
+    "_efeito": "Publica priceRange no JSON-LD. Não aparece no texto visível."
+  },
+
+  "linkCardapio": {
+    "confirmado": false,
+    "url": "https://burmooca.goomer.app",
+    "_fonte": "O Google mostra o domínio burmooca.goomer.app como 'Cardápio'. Já linkado no botão 'Ver cardápio completo'.",
+    "_efeito": "Publica hasMenu no JSON-LD."
+  },
+
+  "imagensAprovadasParaPublicar": false,
+  "_imagensAprovadasParaPublicar": "Trava de publicação. Enquanto false, o build avisa que o site NÃO deve ir ao ar: por decisão desta etapa NÃO foram usadas fotos reais do cliente; as fotos de comida e da chapa são ilustrativas (geradas por IA, herdadas da base). Só mude para true depois de trocar pelas fotos reais (imagens/) ou de ter o aceite por escrito do cliente.",
+
+  "_sem_efeito_automatico": {
+    "destinoDoPedido": "Hoje: ligação e WhatsApp (11) 94569-0950 (bio do Instagram). Confirmar se o WhatsApp recebe pedidos ou se o cliente prefere o Goomer.",
+    "pratosEmDestaque": "Google cita 'Chamantá' e 'Batata Frita'. Sem preços publicados. As etiquetas sobre as fotos usam frases reais do resumo de avaliações ('na medida certa', 'porção generosa de fritas').",
+    "fotos": "Escolher as fotos reais para hero, 3 destaques e faixa escura (ver PENDENCIAS-CLIENTE.md, item 1)."
+  }
+}

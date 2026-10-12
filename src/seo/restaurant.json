@@ -1,0 +1,18 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Burmooca",
+  "servesCuisine": ["Hambúrguer", "Café da manhã", "Almoço"],
+  "telephone": "+55 11 94569-0950",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. Visc. de Laguna, 193 - Mooca",
+    "addressLocality": "São Paulo",
+    "addressRegion": "SP",
+    "postalCode": "03112-110",
+    "addressCountry": "BR"
+  },
+  "sameAs": [
+    "https://www.instagram.com/burmooca/"
+  ]
+}

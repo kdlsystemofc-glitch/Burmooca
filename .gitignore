@@ -1,0 +1,6 @@
+node_modules/
+screenshots/
+.playwright/
+*.log
+lighthouse/
+__pycache__/

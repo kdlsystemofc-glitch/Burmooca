@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burmooca | Restaurante e hamburgueria na Mooca, SP</title>
+  <meta name="description" content="Burmooca, restaurante e hamburgueria na Mooca, São Paulo. Café e almoço de segunda a sábado, das 7h às 17h. R. Visc. de Laguna, 193 · WhatsApp (11) 94569-0950.">
+  <meta name="theme-color" content="#f7f0de">
+  <meta name="robots" content="index, follow">
+
+  <!-- Ícones (gerados do logo real por scripts/gen_icons.py). O manifest é ligado pelo script abaixo, só em http(s). -->
+  <link rel="icon" href="./favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+
+  <!-- Open Graph / Twitter Card (campos que não dependem do domínio) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Burmooca">
+  <meta property="og:title" content="Burmooca — Restaurante e hamburgueria na Mooca">
+  <meta property="og:description" content="Café, almoço e hambúrguer na R. Visc. de Laguna, 193 · Mooca, São Paulo. Segunda a sábado, 7h às 17h. WhatsApp: (11) 94569-0950.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Burmooca — Restaurante e hamburgueria na Mooca">
+  <meta name="twitter:description" content="Café, almoço e hambúrguer na Mooca, São Paulo. Segunda a sábado, 7h às 17h. WhatsApp: (11) 94569-0950.">
+  <!-- @seo:domain (canonical, og:url, og:image, twitter:image — gerado por scripts/build.py a partir de cliente.config.json) -->
+  <!-- @seo:jsonld (schema.org Restaurant — gerado por scripts/build.py a partir de src/seo/restaurant.json) -->
+  <!-- Fontes acima da dobra (letreiro/títulos e navegação/selos). Caveat e Plus Jakarta Sans carregam sob demanda. -->
+  <!-- Injetados por script só em http(s): em file:// o preload de fonte (sempre CORS) e o manifest geram erro
+       de console. Sem JS, as fontes carregam normalmente pelo @font-face — o preload só antecipa. -->
+  <script>
+    (function (d) {
+      if (location.protocol === 'file:') return;
+      var m = d.createElement('link');
+      m.rel = 'manifest'; m.href = './site.webmanifest';
+      d.head.appendChild(m);
+      ['bebas-neue-400-latin', 'montserrat-var-latin'].forEach(function (f) {
+        var l = d.createElement('link');
+        l.rel = 'preload'; l.as = 'font'; l.type = 'font/woff2'; l.crossOrigin = 'anonymous';
+        l.href = './fonts/' + f + '.woff2';
+        d.head.appendChild(l);
+      });
+    })(document);
+  </script>
+  <!-- Candidato a LCP: mesmo srcset/sizes do <img> do hero (sem href: quem não entende imagesrcset não baixa em dobro) -->
+  <link rel="preload" as="image" imagesrcset="./assets/menu-burguinho-480.webp 480w, ./assets/menu-burguinho-640.webp 640w, ./assets/menu-burguinho-800.webp 800w, ./assets/menu-burguinho-1200.webp 1200w, ./assets/menu-burguinho-1600.webp 1600w" imagesizes="(min-width: 790px) 693px, 88vw" fetchpriority="high">
+  <!-- @build:critical-css (gerado por scripts/build.py a partir de src/css/) -->
+  <!-- @build:styles -->
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a href="#hero" class="brand" aria-label="Burmooca — início">
+        <img src="./assets/logo-150.webp" alt="" class="brand-logo" width="44" height="44">
+        <span class="brand-text">
+          <span class="brand-title">BURMOOCA</span>
+          <span class="brand-sub">MOOCA · SP</span>
+        </span>
+      </a>
+      <nav class="header-nav" aria-label="Navegação principal">
+        <a href="#menu-highlights" class="nav-link">Cardápio</a>
+        <a href="#griddle-craft" class="nav-link">A Casa</a>
+        <a href="#lounge-social" class="nav-link">Avaliações</a>
+        <a href="#footer-conversion" class="btn-header-cta">Fazer Pedido</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Sections (Full-bleed) -->
+  <main id="main-content">
+    <!-- 01. Hero -->
+    <section class="section-hero" id="hero" aria-label="Apresentação Burmooca">
+      <!-- Gota de molho no canto superior esquerdo (decorativa) -->
+      <div class="cheese-drip-top-left" aria-hidden="true">
+        <svg viewBox="0 0 100 120" class="cheese-drip-svg">
+          <path d="M 0 0 L 48 42 C 54 48 56 60 52 68 C 47 74 38 72 34 64 C 30 56 22 36 0 20 Z" />
+          <ellipse cx="44" cy="94" rx="10" ry="14" />
+        </svg>
+      </div>
+
+      <!-- Letreiro Topo Central -->
+      <h1 class="hero-top-brand">
+        <span class="hero-brand-line1">BURMOOCA</span>
+        <span class="hero-brand-line2">HAMBURGUERIA</span>
+        <span class="visually-hidden">— restaurante e hamburgueria: café, almoço e hambúrguer na Mooca, São Paulo</span>
+      </h1>
+
+      <!-- Letreiro de fundo gigante: "BURM" + "OOCA", o lanche no meio (mesmo recurso da base) -->
+      <div class="hero-bg-text" aria-hidden="true">
+        <div class="hero-bg-inner">
+          <span class="hero-txt-left">BURM</span>
+          <span class="hero-txt-right">OOCA</span>
+        </div>
+      </div>
+
+      <!-- Camada de Elementos Decorativos Integrados -->
+      <div class="hero-decorations" aria-hidden="true">
+        <!-- Comanda superior esquerda: endereço real -->
+        <div class="receipt receipt-tl">
+          <div class="receipt-inner">
+            <span class="rc-num">#193</span>
+            <span class="rc-line">VISC. DE LAGUNA</span>
+            <span class="rc-line">MOOCA - SP</span>
+            <span class="rc-bar">||||||||||||||</span>
+          </div>
+        </div>
+
+        <!-- Xícara de café (slot dos dados da base): a casa serve café da manhã -->
+        <div class="floating-asset dice-wrapper">
+          <svg viewBox="0 0 120 100" class="hero-dice-img">
+            <path class="steam" d="M44 30 C38 22 50 18 44 8 M60 30 C54 22 66 18 60 8 M76 30 C70 22 82 18 76 8" />
+            <ellipse class="ic-b" cx="60" cy="88" rx="50" ry="8" />
+            <path class="ic-a" d="M26 38 H94 V58 C94 76 80 86 60 86 C40 86 26 76 26 58 Z" />
+            <path class="ic-line" d="M94 46 C110 46 110 68 92 68" />
+            <rect class="ic-c" x="26" y="38" width="68" height="7" />
+          </svg>
+        </div>
+
+        <!-- Neon: zigue-zague de ketchup do logo -->
+        <div class="floating-asset neon-doodle-wrapper">
+          <svg viewBox="0 0 110 133" class="hero-neon-img">
+            <path class="neon-line" d="M18 18 L46 38 L18 58 L46 78 L18 98 L46 118 M64 18 L92 38 L64 58 L92 78 L64 98 L92 118" />
+          </svg>
+        </div>
+
+        <!-- Selo de texto: o que a casa serve (Instagram: "Café e Almoço") -->
+        <div class="badge-fresh-meat">
+          <span class="fresh-perc">CAFÉ, ALMOÇO</span>
+          <span class="fresh-text">E LANCHES</span>
+        </div>
+
+        <!-- Comanda inferior esquerda: opção de serviço do Google -->
+        <div class="receipt receipt-bl">
+          <div class="receipt-inner">
+            <span class="rc-line">REFEIÇÃO NO LOCAL</span>
+            <span class="rc-bar">|||||||||||</span>
+          </div>
+        </div>
+
+        <!-- Selo circular com o nome e o logo real ao centro -->
+        <div class="stamp stamp-blue">
+          <svg viewBox="0 0 100 100" class="stamp-svg">
+            <defs><clipPath id="logo-clip"><circle cx="50" cy="50" r="17"/></clipPath></defs>
+            <path id="blue-curve" d="M 15 50 A 35 35 0 1 1 85 50 A 35 35 0 1 1 15 50" fill="none"/>
+            <text class="stamp-text">
+              <textPath href="#blue-curve" startOffset="50%" text-anchor="middle">BURMOOCA • MOOCA • SP •</textPath>
+            </text>
+            <image href="./assets/logo-150.webp" x="33" y="33" width="34" height="34" clip-path="url(#logo-clip)"/>
+          </svg>
+        </div>
+
+        <!-- Selo: nota real no Google -->
+        <div class="stamp stamp-coral">
+          <span class="stamp-badge-title">4,8</span>
+          <span class="stamp-badge-sub">NO GOOGLE</span>
+        </div>
+
+        <!-- Mini hambúrguer do logo (slot das batatas voadoras, que eram recorte do mockup) -->
+        <div class="floating-asset fries-fly-wrapper">
+          <svg viewBox="0 0 120 100" class="hero-flying-fries-img">
+            <path class="ic-a" d="M14 46 C14 18 36 6 60 6 C84 6 106 18 106 46 Z" />
+            <path class="ic-red" d="M10 58 L20 50 L30 58 L40 50 L50 58 L60 50 L70 58 L80 50 L90 58 L100 50 L110 58" />
+            <path class="ic-green" d="M10 70 C20 62 30 78 40 70 C50 62 60 78 70 70 C80 62 90 78 100 70 C104 67 108 68 110 70" />
+            <path class="ic-a" d="M16 80 H104 C104 90 94 96 84 96 H36 C26 96 16 90 16 80 Z" />
+          </svg>
+        </div>
+
+        <!-- Pílula: bairro -->
+        <div class="badge-pill pill-saude">
+          <span>MOOCA · SP</span>
+        </div>
+
+        <!-- Pílula: horário (Instagram: segunda a sábado, 7 às 17h; Google: "Fecha 17:00") -->
+        <div class="badge-pill pill-hours">
+          <span>SEG A SÁB · 7H–17H</span>
+        </div>
+
+        <!-- Comanda inferior direita: opções de serviço do Google -->
+        <div class="receipt receipt-br">
+          <div class="receipt-inner">
+            <span class="rc-num">DRIVE-THROUGH</span>
+            <span class="rc-line">ENTREGA SEM CONTATO</span>
+            <span class="rc-bar">||||||||||</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hambúrguer central — IMAGEM ILUSTRATIVA (gerada por IA, herdada da base; não é foto do Burmooca).
+           PENDÊNCIA: trocar por foto real do cliente antes de publicar (PENDENCIAS-CLIENTE.md, item 1). -->
+      <div class="hero-center-stage">
+        <div class="stamp stamp-mint" aria-hidden="true">
+          <span class="stamp-mint-num">// 11</span>
+          <span class="stamp-mint-text">MOOCA</span>
+        </div>
+
+        <picture class="hero-burger-picture">
+          <img src="./assets/menu-burguinho-800.webp"
+               srcset="./assets/menu-burguinho-480.webp 480w, ./assets/menu-burguinho-640.webp 640w, ./assets/menu-burguinho-800.webp 800w, ./assets/menu-burguinho-1200.webp 1200w, ./assets/menu-burguinho-1600.webp 1600w"
+               sizes="(min-width: 790px) 693px, 88vw"
+               alt="Imagem ilustrativa de hambúrguer com cheddar, bacon, alface e tomate"
+               class="hero-burger-img"
+               width="800"
+               height="533"
+               fetchpriority="high">
+        </picture>
+        <div class="hero-burger-shadow" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- 02. Destaques do cardápio — imagens ILUSTRATIVAS (ver pendência acima) -->
+    <section class="section-menu" id="menu-highlights" aria-label="Destaques do Cardápio">
+      <div class="menu-sand-shape" aria-hidden="true">
+        <svg viewBox="0 0 1440 600" preserveAspectRatio="none" class="sand-svg">
+          <path d="M 450,0 C 580,60 720,25 860,65 C 1040,110 1240,50 1440,75 L 1440,600 L 400,600 C 500,430 420,180 450,0 Z"/>
+        </svg>
+      </div>
+
+      <div class="menu-header">
+        <h2 class="menu-title">DESTAQUES DA CASA</h2>
+      </div>
+
+      <div class="menu-showcase">
+        <!-- Item 1 -->
+        <div class="menu-display-item item-smash">
+          <div class="menu-item-decorations" aria-hidden="true">
+            <div class="menu-dice-float">
+              <svg viewBox="0 0 120 100">
+                <path class="steam" d="M44 30 C38 22 50 18 44 8 M60 30 C54 22 66 18 60 8 M76 30 C70 22 82 18 76 8" />
+                <ellipse class="ic-b" cx="60" cy="88" rx="50" ry="8" />
+                <path class="ic-a" d="M26 38 H94 V58 C94 76 80 86 60 86 C40 86 26 76 26 58 Z" />
+                <path class="ic-line" d="M94 46 C110 46 110 68 92 68" />
+                <rect class="ic-c" x="26" y="38" width="68" height="7" />
+              </svg>
+            </div>
+            <div class="menu-neon-float">
+              <svg viewBox="0 0 110 133">
+                <path class="neon-line" d="M18 18 L46 38 L18 58 L46 78 L18 98 L46 118 M64 18 L92 38 L64 58 L92 78 L64 98 L92 118" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="menu-food-visual">
+            <img src="./assets/menu-burguinho-800.webp"
+                 srcset="./assets/menu-burguinho-480.webp 480w, ./assets/menu-burguinho-640.webp 640w, ./assets/menu-burguinho-720.webp 720w, ./assets/menu-burguinho-800.webp 800w, ./assets/menu-burguinho-1200.webp 1200w"
+                 sizes="(min-width: 1440px) 433px, (min-width: 1024px) 30vw, (min-width: 423px) 380px, 90vw"
+                 alt="Imagem ilustrativa de hambúrguer artesanal com salada"
+                 class="menu-food-img"
+                 width="520"
+                 height="346"
+                 loading="lazy">
+            <div class="menu-ground-shadow" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Item 2 — etiqueta com frase real do resumo de avaliações do Google -->
+        <div class="menu-display-item item-burguinho">
+          <div class="menu-food-visual">
+            <div class="pill-burguinho-tag" aria-hidden="true">NA MEDIDA CERTA</div>
+            <img src="./assets/hero-burger-800.webp"
+                 srcset="./assets/hero-burger-480.webp 480w, ./assets/hero-burger-720.webp 720w, ./assets/hero-burger-800.webp 800w, ./assets/hero-burger-1200.webp 1200w"
+                 sizes="(min-width: 1440px) 433px, (min-width: 1024px) 30vw, (min-width: 423px) 380px, 90vw"
+                 alt="Imagem ilustrativa de hambúrguer duplo com cheddar e bacon"
+                 class="menu-food-img"
+                 width="520"
+                 height="346"
+                 loading="lazy">
+            <div class="menu-ground-shadow" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Item 3 — Batata Frita (destaque do Google) -->
+        <div class="menu-display-item item-fries">
+          <div class="menu-food-visual">
+            <!-- Selo com frase real do resumo de avaliações: "porção generosa de batatas fritas" -->
+            <div class="stamp-preco-justo" aria-hidden="true">
+              <div class="stamp-pj-inner">
+                <span class="pj-curved">PORÇÃO</span>
+                <span class="pj-value">GENEROSA</span>
+                <span class="pj-bottom">DE FRITAS</span>
+              </div>
+            </div>
+
+            <img src="./assets/menu-fries-800.webp"
+                 srcset="./assets/menu-fries-480.webp 480w, ./assets/menu-fries-720.webp 720w, ./assets/menu-fries-800.webp 800w, ./assets/menu-fries-1200.webp 1200w"
+                 sizes="(min-width: 1440px) 433px, (min-width: 1024px) 30vw, (min-width: 423px) 380px, 90vw"
+                 alt="Imagem ilustrativa de batatas fritas com cheddar e bacon"
+                 class="menu-food-img"
+                 width="520"
+                 height="346"
+                 loading="lazy">
+            <div class="menu-ground-shadow" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Destaques citados no Google: "Chamantá" e "Batata Frita". Link: domínio exibido no Google
+           (burmooca.goomer.app) — PENDÊNCIA: confirmar com o cliente. -->
+      <p class="menu-cta-line">
+        <span>Destaques do cardápio no Google: <strong>Chamantá</strong> e <strong>Batata Frita</strong>.</span>
+        <a href="https://burmooca.goomer.app" class="menu-cta-link" target="_blank" rel="noopener noreferrer">Ver cardápio completo</a>
+      </p>
+    </section>
+
+    <!-- 03. A casa (faixa escura da base). Fundo = chapa ILUSTRATIVA herdada da base. -->
+    <section class="section-griddle" id="griddle-craft" aria-label="Café, almoço e hambúrguer">
+      <!-- Borda superior: onda de alface do logo (assinatura deste cliente; ver DIFERENCAS.md) -->
+      <div class="torn-paper torn-paper-top" aria-hidden="true">
+        <img src="./assets/edge-top.svg" alt="" class="torn-svg" width="1440" height="40" loading="lazy" decoding="async">
+      </div>
+
+      <div class="griddle-backdrop">
+        <picture class="griddle-picture">
+          <img src="./assets/griddle-craft-800.webp"
+               srcset="./assets/griddle-craft-480.webp 480w, ./assets/griddle-craft-800.webp 800w, ./assets/griddle-craft-1200.webp 1200w, ./assets/griddle-craft-1600.webp 1600w"
+               sizes="100vw"
+               alt=""
+               class="griddle-bg-img"
+               width="1600"
+               height="533"
+               loading="lazy">
+        </picture>
+        <div class="griddle-overlay" aria-hidden="true"></div>
+
+        <div class="griddle-content-wrapper">
+          <div class="griddle-headline">
+            <h2 class="griddle-title">CAFÉ, ALMOÇO &amp; HAMBÚRGUER</h2>
+            <p class="griddle-lead">Restaurante e hamburgueria na Mooca. Café e almoço de segunda a sábado, das 7h às 17h. À noite, abrimos para eventos privados — consulte!</p>
+          </div>
+
+          <div class="griddle-badge-cluster" aria-hidden="true">
+            <div class="stamp-maillard">
+              <span class="maillard-top">SEG A SÁB</span>
+              <svg viewBox="0 0 40 24" class="maillard-burger-icon">
+                <path d="M4,12 C4,5 12,2 20,2 C28,2 36,5 36,12 Z" fill="none" stroke="currentColor" stroke-width="2" />
+                <line x1="2" y1="15" x2="38" y2="15" stroke="currentColor" stroke-width="2.5" stroke-dasharray="4 2" />
+                <path d="M4,18 C4,21 10,22 20,22 C30,22 36,21 36,18 Z" fill="none" stroke="currentColor" stroke-width="2" />
+              </svg>
+              <span class="maillard-bottom">7H ÀS 17H</span>
+            </div>
+
+            <div class="chalk-arrow">
+              <svg viewBox="0 0 70 60" class="arrow-svg">
+                <path d="M55,10 Q25,25 20,45" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                <path d="M14,38 L20,46 L27,39" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="torn-paper torn-paper-bottom" aria-hidden="true">
+        <img src="./assets/edge-bottom.svg" alt="" class="torn-svg" width="1440" height="40" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <!-- 04. Avaliações (no lugar da "mesa de jogos" da base, que era tema de outro cliente) -->
+    <section class="section-lounge" id="lounge-social" aria-label="Avaliações do Burmooca">
+      <div class="lounge-header">
+        <h2 class="lounge-title">O QUE DIZEM DO BURMOOCA</h2>
+        <p class="lounge-subtitle">4,8 NO GOOGLE // 107 AVALIAÇÕES</p>
+        <ul class="lounge-tags" aria-label="Opções de serviço">
+          <li class="lounge-tag">Refeição no local</li>
+          <li class="lounge-tag">Drive-through</li>
+          <li class="lounge-tag">Entrega sem contato</li>
+        </ul>
+      </div>
+
+      <div class="lounge-stage">
+        <!-- Avaliação real do Google (texto literal) -->
+        <div class="lounge-photo lounge-photo-left">
+          <figure class="photo-frame review-card">
+            <span class="review-stars" aria-hidden="true">★★★★★</span>
+            <blockquote class="review-quote">“Um lugar tão acolhedor, desde sua abertura, lanches tão gostosos, e hoje em dia também os pratos muito bons, sempre vale apena buscar o Burmooca.”</blockquote>
+            <figcaption class="review-author">Davi Perez · Google</figcaption>
+          </figure>
+        </div>
+
+        <div class="lounge-centerpiece">
+          <div class="trophy-wrapper">
+            <div class="trophy-img rating-medal is-dark" role="img" aria-label="Nota 4,8 de 5 no Google, com 107 avaliações" style="--stars-fill: 96%">
+              <span class="medal-kicker" aria-hidden="true">NOTA GOOGLE</span>
+              <span class="medal-score" aria-hidden="true">4,8</span>
+              <span class="medal-stars" aria-hidden="true">★★★★★</span>
+              <span class="medal-label" aria-hidden="true">107 AVALIAÇÕES</span>
+            </div>
+
+            <!-- Instagram @burmooca: 4251 seguidores (CLIENTE.MD) -->
+            <div class="badge-google-reviews">
+              <span class="gr-number">4,2 MIL</span>
+              <span class="gr-label">SEGUIDORES<br>INSTAGRAM</span>
+            </div>
+          </div>
+
+          <!-- Frase real do resumo de avaliações do Google -->
+          <div class="tape-testimonial-wrapper">
+            <div class="tape-strip" aria-label="Depoimento">
+              <p class="tape-quote">“O ambiente, o atendimento, a comida, além do preço ser ótimo!”</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lounge-photo lounge-photo-right">
+          <figure class="photo-frame review-card">
+            <span class="review-stars" aria-hidden="true">★★★★★</span>
+            <blockquote class="review-quote">“Ótimo atendimento! Porção de fritas é bem servida. Valor dos lanches e combos também são acessíveis e uma delícia! Super recomendo!”</blockquote>
+            <figcaption class="review-author">Nina Maria · Local Guide</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. Rodapé & conversão -->
+    <footer class="section-footer" id="footer-conversion" aria-label="Rodapé e Pedidos">
+      <!-- Faixa de ketchup em zigue-zague (assinatura deste cliente, no lugar do rolo de filme) -->
+      <div class="film-strip-divider" aria-hidden="true">
+        <div class="film-sprockets"></div>
+      </div>
+
+      <div class="footer-inner-stage">
+        <div class="footer-bg-diner" aria-hidden="true"></div>
+
+        <div class="footer-content-container">
+          <img src="./assets/logo-150.webp" alt="Logo Burmooca" class="footer-logo" width="104" height="104" loading="lazy">
+          <div class="footer-header-tag">
+            <h2 class="footer-title">PEÇA AGORA // BURMOOCA</h2>
+          </div>
+
+          <div class="footer-cta-group">
+            <a href="tel:+5511945690950" class="neon-pill-btn btn-call">
+              <span class="bracket">[</span>
+              <span class="neon-btn-text">LIGAR // (11) 94569-0950</span>
+              <span class="bracket">]</span>
+            </a>
+
+            <div class="footer-hours-pill">
+              <span class="bracket">[</span>
+              <span class="hours-text">SEG A SÁB // 7H – 17H</span>
+              <span class="bracket">]</span>
+            </div>
+
+            <!-- WhatsApp citado na bio do Instagram: (11) 94569-0950 -->
+            <a href="https://wa.me/5511945690950?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20pedido%20no%20Burmooca."
+               target="_blank"
+               rel="noopener noreferrer"
+               class="neon-pill-btn btn-whatsapp">
+              <span class="bracket">[</span>
+              <span class="neon-btn-text">PEDIR NO WHATSAPP // (11) 94569-0950</span>
+              <span class="bracket">]</span>
+            </a>
+          </div>
+
+          <div class="footer-address">
+            <p class="address-text">R. Visc. de Laguna, 193 – Mooca, São Paulo – SP</p>
+            <p class="footer-note">Abrimos à noite para eventos privados, consulte! · Instagram <a href="https://www.instagram.com/burmooca/" target="_blank" rel="noopener noreferrer">@burmooca</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botão de Acessibilidade: Pausar / Retomar Animações -->
+    <button type="button"
+            id="motion-pause-toggle"
+            class="motion-pause-btn"
+            aria-label="Pausar animações"
+            aria-pressed="false">
+      <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="6" y="4" width="4" height="16" rx="1" />
+        <rect x="14" y="4" width="4" height="16" rx="1" />
+      </svg>
+      <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true">
+        <polygon points="5 3 19 12 5 21 5 3" />
+      </svg>
+      <span class="motion-toggle-label">PAUSAR</span>
+    </button>
+  </main>
+
+  <!-- Carregamento Diferido dos Scripts Clássicos de Motion (Auto-Hospedados) -->
+  <script>
+    (function () {
+      var loaded = false;
+      function loadMotionScripts() {
+        if (loaded) return;
+        loaded = true;
+
+        window.removeEventListener('load', loadMotionScripts);
+        window.removeEventListener('pointerdown', loadMotionScripts);
+        window.removeEventListener('touchstart', loadMotionScripts);
+        window.removeEventListener('scroll', loadMotionScripts);
+        window.removeEventListener('keydown', loadMotionScripts);
+
+        function loadScript(src, cb) {
+          var s = document.createElement('script');
+          s.src = src;
+          s.onload = cb;
+          s.onerror = function () {
+            console.warn('[MotionLoader] Falha ao carregar ' + src);
+            if (cb) cb();
+          };
+          document.body.appendChild(s);
+        }
+
+        loadScript('./js/vendor/gsap.min.js', function () {
+          loadScript('./js/vendor/ScrollTrigger.min.js', function () {
+            loadScript('./js/vendor/lenis.min.js', function () {
+              loadScript('./js/motion-core.min.js', function () {
+                loadScript('./js/motion-sections.min.js', function () {
+                  if (window.SiteMotion && window.SiteMotion.init) {
+                    window.SiteMotion.init();
+                  }
+                  if (window.SiteSections) {
+                    if (window.SiteSections.initHero) window.SiteSections.initHero();
+                    if (window.SiteSections.initMenu) window.SiteSections.initMenu();
+                    if (window.SiteSections.initGriddle) window.SiteSections.initGriddle();
+                    if (window.SiteSections.initLounge) window.SiteSections.initLounge();
+                    if (window.SiteSections.initFooter) window.SiteSections.initFooter();
+                  }
+                });
+              });
+            });
+          });
+        });
+      }
+
+      if (document.readyState === 'complete') {
+        scheduleIdle();
+      } else {
+        window.addEventListener('load', scheduleIdle);
+      }
+
+      function scheduleIdle() {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(loadMotionScripts, { timeout: 2500 });
+        } else {
+          setTimeout(loadMotionScripts, 1800);
+        }
+      }
+
+      var userEvents = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
+      function onFirstUserAction() {
+        for (var i = 0; i < userEvents.length; i++) {
+          window.removeEventListener(userEvents[i], onFirstUserAction);
+        }
+        loadMotionScripts();
+      }
+      for (var i = 0; i < userEvents.length; i++) {
+        window.addEventListener(userEvents[i], onFirstUserAction, { once: true, passive: true });
+      }
+    })();
+  </script>
+</body>
+</html>
